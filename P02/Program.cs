@@ -1,7 +1,15 @@
+using Microsoft.EntityFrameworkCore;
+using P02.Models;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddDbContext<P02.Data.BooksContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("BooksDb")));
+builder.Services.AddScoped<P02.Repository.BooksRepository>();
+builder.Services.AddScoped<P02.Service.BooksService>();
+
 
 var app = builder.Build();
 

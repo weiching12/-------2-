@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using P02.Models;
 namespace P02.Data
 {
     public class BooksContext : DbContext
@@ -7,6 +8,6 @@ namespace P02.Data
         {
         }
 
-        public DbSet<Models.Book> Books { get; set; }
+        public DbSet<Book> Books { get; set; }
     }
 }

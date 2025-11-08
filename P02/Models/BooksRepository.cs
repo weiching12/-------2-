@@ -17,7 +17,7 @@ namespace P02.Repository
             return await _context.Books.ToListAsync();
         }
 
-        public async Task<Book?> GetBookByIdAsync(int id)
+        public async Task<Book?> GetBookByIdAsync(string id)
         {
             return await _context.Books.FindAsync(id);
         }

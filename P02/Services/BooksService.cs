@@ -19,7 +19,7 @@ namespace P02.Service
         }
 
         // 依id取得單一書籍
-        public async Task<Book?> GetBookByIdAsync(int id)
+        public async Task<Book?> GetBookByIdAsync(string id)
         {
             return await _repository.GetBookByIdAsync(id);
         }

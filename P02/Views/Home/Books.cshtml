@@ -1,6 +1,26 @@
-﻿@{
-    ViewData["Title"] = "Books";
+﻿@model List<P02.Models.Book>
+@{
+    ViewData["Title"] = "書籍庫";
 }
 <h1>@ViewData["Title"]</h1>
-
-<p>Use this page to detail your site's privacy policy.</p>
+<table class="table table=bordered">
+    <thead>
+        <tr>
+            <th>ISBN</th>
+            <th>書名</th>
+            <th>作者</th>
+            <th>建立時間</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var book in Model)
+        {
+            <tr>
+                <td>@book.Id</td>
+                <td>@book.Title</td>
+                <td>@book.Author</td>
+                <td>@book.CreateDate?.ToString("yyyy-MM-dd")</td>
+            </tr>
+        }
+    </tbody>
+</table>

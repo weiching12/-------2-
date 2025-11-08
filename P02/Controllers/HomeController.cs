@@ -1,6 +1,8 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using P02.Models;
+using P02.Service;
+
 
 namespace P02.Controllers;
 
@@ -18,9 +20,10 @@ public class HomeController : Controller
         return View();
     }
 
-    public IActionResult Books()
+    public async Task<IActionResult> Books([FromServices] BooksService service)
     {
-        return View();
+        var books = await service.GetAllBooksAsync();
+        return View(books);
     }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
