@@ -1,5 +1,7 @@
 using Microsoft.EntityFrameworkCore;
-namespace BooksModel
+using P02.Data;
+using P02.Models;
+namespace P02.Repository
 {
     public class BooksRepository
     {
@@ -10,23 +12,23 @@ namespace BooksModel
             _context = context;
         }
 
-        public async Task<List<BooksModel>> GetAllBooksAsync()
+        public async Task<List<Book>> GetAllBooksAsync()
         {
             return await _context.Books.ToListAsync();
         }
 
-        public async Task<BooksModel?> GetBookByIdAsync(int id)
+        public async Task<Book?> GetBookByIdAsync(int id)
         {
             return await _context.Books.FindAsync(id);
         }
 
-        public async Task AddBookAsync(BooksModel book)
+        public async Task AddBookAsync(Book book)
         {
             _context.Books.Add(book);
             await _context.SaveChangesAsync();
         }
 
-        public async Task UpdateBookAsync(BooksModel book)
+        public async Task UpdateBookAsync(Book book)
         {
             _context.Books.Update(book);
             await _context.SaveChangesAsync();

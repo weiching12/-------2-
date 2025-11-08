@@ -1,6 +1,6 @@
-namespace BooksModel
+namespace P02.Models
 {
-    public class BooksModel
+    public class Book
     {
         public int Id { get; set; }
         public string? Title { get; set; }

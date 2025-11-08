@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-namespace BooksModel
+namespace P02.Data
 {
     public class BooksContext : DbContext
     {
@@ -7,6 +7,6 @@ namespace BooksModel
         {
         }
 
-        public DbSet<BooksModel> Books { get; set; }
+        public DbSet<Models.Book> Books { get; set; }
     }
 }
