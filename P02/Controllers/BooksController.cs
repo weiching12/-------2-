@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace P02.Controllers
 {
+    [Route("LibrarySystem/[controller]")]
     public class BooksController : Controller
     {
         private readonly BooksService _service;
@@ -11,11 +12,13 @@ namespace P02.Controllers
         {
             _service = service;
         }
+
         // 取得全部書籍
-        [HttpGet("/books")]
-        public async Task<IActionResult> Books()
+        [HttpGet]
+        public async Task<IActionResult> Index()
         {
-            return View(await _service.GetAllBooksAsync());
+            var rs = await _service.GetAllBooksAsync();
+            return View(rs);
         }
     }
 }

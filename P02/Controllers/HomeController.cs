@@ -6,6 +6,7 @@ using P02.Service;
 
 namespace P02.Controllers;
 
+[Route("LibrarySystem/[controller]")]
 public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;
@@ -14,16 +15,10 @@ public class HomeController : Controller
     {
         _logger = logger;
     }
-
+    [HttpGet]
     public IActionResult Index()
     {
         return View();
-    }
-
-    public async Task<IActionResult> Books([FromServices] BooksService service)
-    {
-        var books = await service.GetAllBooksAsync();
-        return View(books);
     }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
